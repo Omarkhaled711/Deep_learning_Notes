@@ -29,18 +29,23 @@
   - Inputs: $x_1 = 8, x_2 = 5, x_3 = -4$
   - Weights: $w_1 = w_2 = w_3 = \frac{1}{3}$
   - Computation:  
-   $$
+
+$$
     \text{Output} = \left(8 \times \frac{1}{3}\right) + \left(5 \times \frac{1}{3}\right) + \left(-4 \times \frac{1}{3}\right) = 3
-   $$
+$$
 
 - **Weighted Sum**: The perceptron computes a **weighted sum**, which can be expressed mathematically as:
+
  $$
   Y = x_1 w_1 + x_2 w_2 + x_3 w_3
  $$
+ 
   This can be written as a **dot product**:
+
  $$
   Y = \mathbf{X} \cdot \mathbf{W} = X_1W_1 + X_2W_2 + X_3W_3
  $$
+ 
   where **X** is the vector of inputs and **W** is the vector of weights.
 
 ---
@@ -65,7 +70,7 @@
 ## 4. The Signum Function (SGN)
 
 - The **signum function** is a simple non-linear function.
-  - **Output**: $1$ for positive inputs,$-1$ for negative inputs.
+  - **Output**: $1$ for positive inputs, $-1$ for negative inputs.
 
 
   **Graph**: The output of the signum function is not continuous and cannotbe represented by a straight line—this makes it **non-linear**.
@@ -81,9 +86,11 @@
   - It transforms the output of the linear combination of inputs and weights.
 
 **Perceptron Model with Activation**:
+
 $$
-Y = f(\mathbf{X} \cdot \mathbf{W})
+  Y = f(\mathbf{X} \cdot \mathbf{W})
 $$
+
 where $f$ is a non-linear activation function.
 
 ---
@@ -101,9 +108,11 @@ where $f$ is a non-linear activation function.
 ## 7. Mathematical Representation of Perceptron
 
 - **Model with bias**:
- $$
+
+$$
   Y = \mathbf{X} \cdot \mathbf{W} + b
- $$
+$$
+
   where **b** is the bias term.
 
   - In this case, **m** is the slope and **b** is the intercept (bias).
@@ -258,9 +267,11 @@ edicted exam score.
 ### 1. **Linear Combination of Inputs and Weights**
    - Each input $X_i$ is multiplied by its corresponding weight $W_i$.
    - The sum of these products is computed, and the bias term is added:
+  
   $$
     \hat{Y} = \sum_{i=1}^{n} X_i W_i + B
   $$
+   
    - The result is a linear combination of the inputs and weights.
 
 ### 2. **Activation Function**
@@ -280,13 +291,17 @@ edicted exam score.
 ### 3. **Dot Product and Bias**
 
    - The computation can be simplified by incorporating the bias term into the weight vector.
+  
   $$
     X_0 = 1, \quad W_0 = B
   $$
+  
   Hence, the final expression becomes:
+  
   $$
     \hat{Y} = \sigma(W^T X)
   $$
+   
    - This simplification removes the need to explicitly handle the bias term in the computation.
 
 ---
@@ -296,9 +311,11 @@ edicted exam score.
   categories based on the decision boundary.
 
    - The decision boundary is determined by the equation:
+  
   $$
     \sum_{i=1}^{n} X_i W_i + B = 0
   $$
+  
    - This defines a **hyperplane** that separates the feature space into two parts:
      - **Class 1**: Data points on one side of the boundary.
      - **Class 2**: Data points on the other side.
@@ -377,10 +394,12 @@ edicted exam score.
 - The model's prediction is denoted as **y_hat**.
 - The true value or target is denoted as **y** (also called the "target variable").
 - **Error** is calculated as:  
- $$
+
+$$
   \text{Error} = y - \hat{y}
- $$
-  
+$$
+
+ 
 ### Table: Example of Error Calculation for Student Exam Prediction
 
 <table>
@@ -431,10 +450,12 @@ Loss functions calculate how well the model's predictions match the true values.
 ### a. **Mean Squared Error (MSE) Loss**
 
 - **Used for:** Continuous data (e.g., predicting prices, height, temperature).
-- **Formula:**  
+- **Formula:**
+
  $$
   \text{MSE Loss} = \frac{1}{2}(\hat{y} - y)^2
  $$
+  
   - Where $\hat{y}$ is the model's prediction for sample i, and $y$ is the true value.
   - **Squaring** the error ensures that all errors are positive and gives more weight to larger errors.
   - The **factor of 1/2** is a convenience for derivatives in optimization.
@@ -448,10 +469,12 @@ Loss functions calculate how well the model's predictions match the true values.
 ### b. **Cross-Entropy Loss (Logistic Loss)**
 
 - **Used for:** Categorical data (e.g., classification tasks such as disease detection, image classification).
-- **Formula:**  
+- **Formula:**
+
  $$
   \text{Cross-Entropy Loss} = -\left( y \log(\hat{y}) + (1 - y) \log(1 - \hat{y}) \right)
  $$
+ 
   - **y_hat** is the model's predicted probability for the positive class (0 or 1).
   - **y** is the true class label (either 0 or 1).
   - The **minus sign** ensures the loss is positive.
@@ -463,10 +486,12 @@ Loss functions calculate how well the model's predictions match the true values.
 
 ## 3. **Cost Function**
 - **Cost Function**: The **average of losses** across multiple samples (data points).
-  - If we have$n$samples, the cost function is:
-   $$
-    \text{Cost Function} = \frac{1}{n} \sum_{i=1}^{n} \text{Loss}_i
-   $$
+  - If we have $n$ samples, the cost function is:
+  
+$$
+      \text{Cost Function} = \frac{1}{n} \sum_{i=1}^{n} \text{Loss}_i
+$$
+
 - The **cost** is used as an optimization criterion during training.
 - **Notation**: The cost function is commonly denoted by$J$.
 - **Loss vs. Cost**:
@@ -557,11 +582,13 @@ Loss functions calculate how well the model's predictions match the true values.
 - **How it works**:
   - **Gradient Descent**:
     - Update weights based on the gradient (derivative) of the loss with respect to the weights.
-    - The update rule:  
-     $$
+    - The update rule:
+
+$$
       W_{\text{new}} = W_{\text{old}} - \eta \cdot \frac{\partial L}{\partial W}
-     $$
-      Where:
+$$
+  
+  Where:
       - $W$= Weights
       - $\eta$= Learning rate (a small constant)
       - $L$= Loss function
@@ -574,11 +601,12 @@ Loss functions calculate how well the model's predictions match the true values.
 - **Gradient Calculation**:
   - To update weights, we need to compute the gradient of the loss with respect to each weight.
   - **Chain Rule**: When the loss function involves a composition of functions (e.g., activation functions and the output), we use the chain rule to differentiate.
-   $$ 
-    \frac{\partial L}{\partial W} = \frac{\partial L}{\partial \hat{y}} \cdot \frac{\partial \hat{y}}{\partial W}
-   $$
 
-    - Where:
+$$ 
+    \frac{\partial L}{\partial W} = \frac{\partial L}{\partial \hat{y}} \cdot \frac{\partial \hat{y}}{\partial W}
+$$
+
+  - Where:
       - $L$ is the loss function.
       - $\hat{y}$ is the predicted output.
       - $W$ are the weights.
@@ -588,10 +616,12 @@ Loss functions calculate how well the model's predictions match the true values.
 ---
 
 ## 6. **Example: Derivative of MSE Loss**
-- **Mean Squared Error (MSE)**:  
+- **Mean Squared Error (MSE)**:
+
  $$
   L = \frac{1}{2} (\hat{y} - y)^2
  $$
+
   - To compute the gradient of MSE with respect to the weights$W$, we need to apply the chain rule, considering the embedded functions inside the activation function.
 
 - **Step-by-Step Gradient Calculation**:
@@ -632,9 +662,10 @@ Loss functions calculate how well the model's predictions match the true values.
 3. **Backward Propagation**:
    - Compute the gradient of the loss with respect to each weight using the chain rule.
    - Update the weights using the gradient descent update rule:
-    $$
+
+$$
      W_{\text{new}} = W_{\text{old}} - \eta \cdot \frac{\partial L}{\partial W}
-    $$
+$$
 
 4. **Repeat**:
    - This process is repeated for each batch of data until the model converges and the loss is minimized.
@@ -650,27 +681,33 @@ Artificial Neural Networks (ANNs) for Regression
 
 ## 2. **Simple Linear Regression Formula**
    - The general formula for **simple linear regression**:
+
 $$
   y = mx + b
 $$
+
   Where:
   - $y$ is the predicted value (dependent variable).
   - $x$ is the independent variable.
   - $m$ is the slope (coefficient).
   - $b$ is the intercept (bias term).
   - **Error term** $\epsilon$ is added to account for noise or unexplained variance:
+
 $$
 y = mx + b + \epsilon
 $$
+
   - **Regression goal**: Predict $y$ as a function of $x$, assuming some error is present.
    
 ## 3. **Regression and Perceptron Model Comparison**
    - **Perceptron Model** and **Linear Regression** have similarities:
      - Both predict $y$ based on inputs and weights.
      - The equation of a perceptron:
-      $$
+
+$$
        y = \text{bias} + \sum ( \text{weight} \times \text{input} )
-      $$
+$$
+
      - **In regression**:
        - $y$ is predicted using a linear weighted sum of inputs.
        - The **intercept (bias)** in the perceptron is equivalent to the **bias (b)** in regression.
@@ -684,11 +721,13 @@ $$
 ## 4. **Regression Loss Function**
    - **Loss function** in regression: 
      - **Mean Squared Error (MSE)**:
-      $$
+
+$$
        \text{MSE} = \frac{1}{2} (\hat{y} - y)^2
-      $$
-     - $y$ = actual values, $\hat{y}$= predicted values.
-     - **Goal**: Minimize the difference between predicted and actual values.
+$$
+     
+  - $y$ = actual values, $\hat{y}$= predicted values.
+  - **Goal**: Minimize the difference between predicted and actual values.
    
 ## 5. **Introducing Non-Linearity**
    - In traditional regression, predictions are a straight line.
